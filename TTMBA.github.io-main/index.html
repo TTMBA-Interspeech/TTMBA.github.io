@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>三线表示例</title>
+  <style>
+    /* 全局设置 */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    /* 页面主容器 */
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+
+    /* 标题块 */
+    .title-section {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 标题样式 */
+    h1 {
+      font-size: 28px;
+      color: #333;
+      text-align: center;
+      margin: 0;
+    }
+
+    /* 表格块 */
+    .table-section {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      overflow-x: auto; /* 允许横向滚动 */
+    }
+
+    /* 描述文本 */
+    p.description {
+      text-align: center;
+      font-size: 20px;
+      color: #777;
+      margin-top: 10px;
+    }
+
+    /* 设置表格样式 */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: Arial, sans-serif;
+    }
+
+    /* 设置表格列宽 */
+    th, td {
+      padding: 10px;
+      text-align: center;
+      vertical-align: middle; /* 垂直居中对齐 */
+    }
+
+    th {
+      background-color: #f9f9f9;
+      font-weight: bold;
+      border-bottom: 2px solid #ddd;
+    }
+
+    td {
+      border-bottom: 1px solid #ddd;
+    }
+
+    tfoot td {
+      border-bottom: 2px solid #ddd;
+      text-align: center;
+      font-style: italic;
+    }
+
+    /* 设置Input列宽 */
+    td:first-child {
+      width: 35%; /* 控制Input列宽度 */
+      text-align: left; /* Input列文本左对齐 */
+    }
+
+    /* 设置音频控件宽度 */
+    audio {
+      width: 250px; /* 固定宽度 */
+      height: 40px; /* 固定高度 */
+      margin: 0 auto; /* 居中音频控件 */
+    }
+
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .container {
+        width: 95%;
+      }
+
+      table {
+        font-size: 14px;
+      }
+
+      audio {
+        width: 100%; /* 音频控件在小屏幕上占满容器宽度 */
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- 主容器 -->
+<div class="container">
+
+  <!-- 标题块 -->
+  <div class="title-section">
+    <h1>TTMBA: Towards Text To Multiple Sources Binaural Audio Generation</h1>
+  </div>
+
+  <!-- 表格块 -->
+  <div class="table-section">
+    <!-- 移动描述文本到这里 -->
+    <p class="description"><strong>Text to Mono Audio Generation</strong></p>
+
+    <!-- 包裹表格的容器，使其可横向滚动 -->
+    <div style="overflow-x: auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>Input</th>
+            <th>Ground-truth</th>
+            <th>Make-An-Audio 2</th>
+            <th>Make-An-Audio</th>
+            <th>Audio-LL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>Origin Input:</strong> A man talking followed by a goat baaing then a metal gate sliding shut as ducks quack and wind blows into a microphone<br>
+              <strong>Structured:</strong> &lt;man talking &amp; start&gt; @&lt;goat baaing &amp; mid&gt;@&lt;metal gate sliding &amp; mid&gt;@&lt;ducks quacking &amp; mid&gt;@&lt;wind blowing &amp; end&gt;
+            </td>
+            <td>
+              <audio controls>
+                <source src="ground_truth.ogg" type="audio/ogg">
+                <source src="ground_truth.mp3" type="audio/mpeg">
+                您的浏览器不支持 audio 元素。
+              </audio>
+            </td>
+            <td>
+              <audio controls>
+                <source src="make_an_audio_2.ogg" type="audio/ogg">
+                <source src="make_an_audio_2.mp3" type="audio/mpeg">
+                您的浏览器不支持 audio 元素。
+              </audio>
+            </td>
+            <td>
+              <audio controls>
+                <source src="make_an_audio.ogg" type="audio/ogg">
+                <source src="make_an_audio.mp3" type="audio/mpeg">
+                您的浏览器不支持 audio 元素。
+              </audio>
+            </td>
+            <td>
+              <audio controls>
+                <source src="audio_ll.ogg" type="audio/ogg">
+                <source src="audio_ll.mp3" type="audio/mpeg">
+                您的浏览器不支持 audio 元素。
+              </audio>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="5">Note: This is a comparison table for Text-to-Audio generation methods.</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
